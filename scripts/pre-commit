@@ -1,0 +1,6 @@
+#!/bin/sh
+set -euxo pipefail
+# apply formatting before commit
+./gradlew spotlessApply
+# re-add all the files that were already staged
+git add $(git diff --name-only --cached)
